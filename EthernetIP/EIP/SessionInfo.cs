@@ -28,8 +28,10 @@ namespace EIPNET.EIP
             get { return _senderContext; }
             set
             {
-                if (value == null)
+                if (value == null) {
                     _senderContext = new byte[8];
+                    return;
+                }
                 if (value.Length > 8)
                     Buffer.BlockCopy(value, 0, _senderContext, 0, 8);
                 if (value.Length <= 8)
